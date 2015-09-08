@@ -1,0 +1,38 @@
+# Set to true to log user information returned from LDAP
+verbose_logging = false
+
+[[servers]]
+# Ldap server host
+host = "<%= scope.lookupvar('grafana::ldap::host') %>"
+# Default port is 389 or 636 if use_ssl = true
+port = <%= scope.lookupvar('grafana::ldap::port') %>
+# Set to true if ldap server supports TLS
+use_ssl = <%= scope.lookupvar('grafana::ldap::ssl') %>
+# set to true if you want to skip ssl cert validation
+ssl_skip_verify = <%= scope.lookupvar('grafana::ldap::ssl_verify') %>
+
+# Search user bind dn
+bind_dn = "<%= scope.lookupvar('grafana::ldap::bind_dn') %>"
+# Search user bind password
+bind_password = "<%= scope.lookupvar('grafana::ldap::bind_pw') %>"
+
+# Search filter, for example "(cn=%s)" or "(sAMAccountName=%s)"
+search_filter = "<%= scope.lookupvar('grafana::ldap::filter') %>"
+# An array of base dns to search through
+search_base_dns = ["<%= scope.lookupvar('grafana::ldap::base_dns') %>"]
+
+# Specify names of the ldap attributes your ldap uses
+[servers.attributes]
+name = "givenName"
+surname = "sn"
+username = "cn"
+member_of = "memberOf"
+email =  "email"
+
+
+<% scope.lookupvar('grafana::ldap::group_mappings').each do |schema| %>
+[[servers.group_mappings]]
+group_dn = "<%= schema['group_dn'] %>"
+org_role = "<%= schema['org_role'] %>"
+org_id = <%= schema['org_id'] %>
+<% end %>

@@ -1,0 +1,40 @@
+{
+  "name": "grafana",
+  "version": "1.3.0",
+  "author": "Marc-Andre Gatien",
+  "summary": "Grafana Dashboard to use with Graphite, InfluxDB or OpenTSDB",
+  "license": "Mozilla Public License Version 2.0",
+  "source": "git clone https://github.com/mag009/puppet-modules.git",
+  "project_page": "https://github.com/mag009/puppet-modules",
+  "issues_url": "https://github.com/mag009/puppet-modules/issues",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat"
+    },
+    {
+      "operatingsystem": "CentOS"
+    },
+    {
+      "operatingsystem": "Scientific"
+    },
+    {
+      "operatingsystem": "Debian"
+    },
+    {
+      "operatingsystem": "Ubuntu"
+    }
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": "3.x"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": ">=2.7.20 <4.0.0"
+    }
+  ],
+  "dependencies": [
+    {"name":"puppetlabs/stdlib","version_requirement":">= 3.2.0"}
+  ]
+}

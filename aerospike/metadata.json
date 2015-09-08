@@ -1,0 +1,31 @@
+{
+  "name": "aerospike",
+  "version": "1.0.0",
+  "author": "Marc-Andre Gatien",
+  "summary": "Puppet module to install and configure a cluster of Aerospike",
+  "license": "Mozilla Public License Version 2.0",
+  "source": "http://www.aerospike.com/",
+  "project_page": "http://www.aerospike.com/",
+  "issues_url": "http://www.aerospike.com/",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian"
+    },
+    {
+      "operatingsystem": "Ubuntu"
+    }
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": "3.x"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": ">=2.7.20 <4.0.0"
+    }
+  ],
+  "dependencies": [
+    {"name":"puppetlabs/stdlib","version_requirement":">= 3.2.0"}
+  ]
+}
